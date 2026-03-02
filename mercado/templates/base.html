@@ -24,7 +24,7 @@
               <a class="nav-link" href="{{url_for('page_produto')}}">Produtos</a>
             </div>
             <div class="navbar-nav ms-auto">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link" href="{{url_for('page_login')}}">Login</a>
               <a class="nav-link" href="{{url_for('page_cadastro')}}">Cadastro</a>
             </div>
             
@@ -34,12 +34,17 @@
       {% with messages = get_flashed_messages(with_categories=true)%}
             {%if messages%}
                 {%for category, message in messages%}
-                <div>
-                  
+                <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                <button 
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+                aria-label="Close"
+                >
+                </button>
+                 {{message}}
                 </div>  
-                
-                
-                {{message}}
+               
                 {%endfor%}
             {%endif%}
       {%endwith%}
